@@ -2,17 +2,24 @@ package the.camelsoapdemo;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.component.cxf.CxfSpringEndpoint;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import the.camelsoapdemo.client.HelloWorldClient;
+import the.camelsoapdemo.types.helloworld.Greeting;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)
+@ContextConfiguration(classes = {SpringCxfApplication.class, SpringCxfApplicationTests.CamelSoapServerConfig.class})
 public class SpringCxfApplicationTests {
 
   @Autowired
@@ -20,7 +27,47 @@ public class SpringCxfApplicationTests {
 
   @Test
   public void testSayHello() {
+
     assertThat(helloWorldClient.sayHello("John", "Doe"))
         .isEqualTo("Hello John Doe!");
+  }
+
+
+
+  @Configuration
+  static class CamelSoapServerConfig {
+
+    @Bean(name = "helloWorldPort")
+    CxfSpringEndpoint helloWorldPort() throws Exception {
+        CxfSpringEndpoint cxfSpringEndpoint = new CxfSpringEndpoint();
+        cxfSpringEndpoint.setAddress("http://localhost:9090/camelsoapdemo/ws/helloworld");
+        cxfSpringEndpoint.setServiceClass("the.camelsoapdemo.services.helloworld.HelloWorldPortType");
+        cxfSpringEndpoint.setWsdlURL("wsdl/helloworld.wsdl");
+
+        return cxfSpringEndpoint;
+    }
+
+
+    @Bean
+    RouteBuilder camelSoupServer() {
+      return new RouteBuilder() {
+        @Override
+        public void configure() throws Exception {
+
+          from("cxf:bean:helloWorldPort")
+                  .process(exchange -> {
+
+                      Greeting greeting = new Greeting();
+                      greeting.setGreeting("katitmukaan, TAUNO !?!");
+                      exchange.getIn().setBody(greeting);
+                    System.out.println();
+                  });
+                  //.transform(constant("OK-22.3"));
+        }
+      };
+    }
+
+
+
   }
 }

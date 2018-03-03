@@ -12,15 +12,17 @@ public class ClientConfig {
 
 
   //  http://localhost:9090/camelsoapdemo/ws/helloworld
+/*
   @Value("${client.ticketagent.address}")
   private String address;
+*/
 
   @Bean(name = "helloWorldProxy")
   public HelloWorldPortType helloWorldProxy() {
     JaxWsProxyFactoryBean jaxWsProxyFactoryBean =
         new JaxWsProxyFactoryBean();
     jaxWsProxyFactoryBean.setServiceClass(HelloWorldPortType.class);
-    jaxWsProxyFactoryBean.setAddress(address);
+    jaxWsProxyFactoryBean.setAddress("http://localhost:9090/camelsoapdemo/ws/helloworld");
 
     return (HelloWorldPortType) jaxWsProxyFactoryBean.create();
   }

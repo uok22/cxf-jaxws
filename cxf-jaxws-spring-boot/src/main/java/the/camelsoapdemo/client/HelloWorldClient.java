@@ -14,6 +14,7 @@ public class HelloWorldClient {
   @Autowired
   private HelloWorldPortType helloWorldProxy;
 
+  // public String sayHello(String firstName, String lastName) {
   public String sayHello(String firstName, String lastName) {
 
     ObjectFactory factory = new ObjectFactory();
