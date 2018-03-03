@@ -7,7 +7,7 @@
     </encoder>
   </appender>
 
-  <logger name="com.camelsoapdemo" level="INFO" />
+  <logger name="the.camelsoapdemo" level="INFO" />
   <logger name="org.apache.cxf" level="WARN" />
   <logger name="org.springframework" level="WARN" />
 

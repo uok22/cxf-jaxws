@@ -1,4 +1,4 @@
-package com.camelsoapdemo;
+package the.camelsoapdemo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

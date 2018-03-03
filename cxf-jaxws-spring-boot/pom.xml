@@ -3,14 +3,14 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.camelsoapdemo</groupId>
+  <groupId>the.camelsoapdemo</groupId>
   <artifactId>cxf-jaxws-spring-boot</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>cxf-jaxws-spring-boot</name>
   <description>Apache CXF - Spring Boot SOAP Web Service Client Server Example</description>
-  <url>https://www.camelsoapdemo.com/apache-cxf-spring-boot-soap-web-service-client-server-example.html</url>
+  <url>https://www.camelsoapdemo.the/apache-cxf-spring-boot-soap-web-service-client-server-example.html</url>
 
   <parent>
     <groupId>org.springframework.boot</groupId>

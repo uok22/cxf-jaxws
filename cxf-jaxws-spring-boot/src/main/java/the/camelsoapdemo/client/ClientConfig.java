@@ -1,11 +1,11 @@
-package com.camelsoapdemo.client;
+package the.camelsoapdemo.client;
 
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.camelsoapdemo.services.helloworld.HelloWorldPortType;
+import the.camelsoapdemo.services.helloworld.HelloWorldPortType;
 
 @Configuration
 public class ClientConfig {

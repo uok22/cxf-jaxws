@@ -1,4 +1,4 @@
-package com.camelsoapdemo.endpoint;
+package the.camelsoapdemo.endpoint;
 
 import javax.xml.ws.Endpoint;
 

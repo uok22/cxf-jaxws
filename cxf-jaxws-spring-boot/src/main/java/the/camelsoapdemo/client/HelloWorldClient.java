@@ -1,12 +1,12 @@
-package com.camelsoapdemo.client;
+package the.camelsoapdemo.client;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.camelsoapdemo.services.helloworld.HelloWorldPortType;
-import com.camelsoapdemo.types.helloworld.Greeting;
-import com.camelsoapdemo.types.helloworld.ObjectFactory;
-import com.camelsoapdemo.types.helloworld.Person;
+import the.camelsoapdemo.services.helloworld.HelloWorldPortType;
+import the.camelsoapdemo.types.helloworld.Greeting;
+import the.camelsoapdemo.types.helloworld.ObjectFactory;
+import the.camelsoapdemo.types.helloworld.Person;
 
 @Component
 public class HelloWorldClient {
