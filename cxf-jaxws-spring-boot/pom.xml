@@ -38,6 +38,43 @@
       <artifactId>cxf-spring-boot-starter-jaxws</artifactId>
       <version>${cxf.version}</version>
     </dependency>
+
+    <!--   CAMEL   -->
+
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-spring-boot-starter</artifactId>
+      <version>2.20.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-jetty</artifactId>
+      <version>2.20.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-test-spring</artifactId>
+      <version>2.20.0</version>
+      <scope>test</scope>
+    </dependency>
+
+
+
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-cxf</artifactId>
+      <version>2.20.2</version>
+    </dependency>
+
+    <!-- using Jetty with CXF -->
+    <dependency>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-rt-transports-http-jetty</artifactId>
+      <version>3.2.1</version>
+    </dependency>
+
+
   </dependencies>
 
   <build>
