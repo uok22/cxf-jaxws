@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
@@ -25,12 +26,22 @@ public class SpringCxfApplicationTests {
   @Autowired
   private HelloWorldClient helloWorldClient;
 
+  @Autowired
+  TestRestTemplate testRestTemplate;
+
   @Test
   public void testSayHello() {
 
     assertThat(helloWorldClient.sayHello("John", "Doe"))
         .isEqualTo("Hello John Doe!");
   }
+
+
+  @Test
+  public void testRest() {
+      String string = testRestTemplate.getForObject("/", String.class);
+  }
+
 
 
 
@@ -58,7 +69,7 @@ public class SpringCxfApplicationTests {
                   .process(exchange -> {
 
                       Greeting greeting = new Greeting();
-                      greeting.setGreeting("katitmukaan, TAUNO !?!");
+                      greeting.setGreeting("katitmukaan, TAUNO !?! :: camelSoapServer tässä TAUNOTTAA !!!");
                       exchange.getIn().setBody(greeting);
                     System.out.println();
                   });
