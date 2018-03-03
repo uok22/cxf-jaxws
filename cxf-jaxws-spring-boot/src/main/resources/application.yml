@@ -1,9 +1,9 @@
 client:
   ticketagent:
-    address: http://localhost:9090/codenotfound/ws/helloworld
+    address: http://localhost:9090/camelsoapdemo/ws/helloworld
 
 server:
   port: 9090
 
 cxf:
-  path: /codenotfound/ws
+  path: /camelsoapdemo/ws

@@ -1,9 +1,9 @@
-package com.codenotfound.endpoint;
+package com.camelsoapdemo.endpoint;
 
-import com.codenotfound.services.helloworld.HelloWorldPortType;
-import com.codenotfound.types.helloworld.Greeting;
-import com.codenotfound.types.helloworld.ObjectFactory;
-import com.codenotfound.types.helloworld.Person;
+import com.camelsoapdemo.services.helloworld.HelloWorldPortType;
+import com.camelsoapdemo.types.helloworld.Greeting;
+import com.camelsoapdemo.types.helloworld.ObjectFactory;
+import com.camelsoapdemo.types.helloworld.Person;
 
 public class HelloWorldImpl implements HelloWorldPortType {
 

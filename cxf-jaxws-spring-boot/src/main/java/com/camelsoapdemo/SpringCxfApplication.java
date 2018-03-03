@@ -1,4 +1,4 @@
-package com.codenotfound;
+package com.camelsoapdemo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

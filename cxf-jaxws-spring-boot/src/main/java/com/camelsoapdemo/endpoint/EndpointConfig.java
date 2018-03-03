@@ -1,4 +1,4 @@
-package com.codenotfound.endpoint;
+package com.camelsoapdemo.endpoint;
 
 import javax.xml.ws.Endpoint;
 
