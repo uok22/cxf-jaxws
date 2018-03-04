@@ -44,7 +44,7 @@ public class SpringCxfApplicationTests {
   }
 
 
-
+//  /Users/ok/dev/camel-soap-server-test/cxf-jaxws/cxf-jaxws-spring-boot/src/main/resources/wsdl/helloworld.wsdl
 
   @Configuration
   static class CamelSoapServerConfig {
@@ -54,7 +54,7 @@ public class SpringCxfApplicationTests {
         CxfSpringEndpoint cxfSpringEndpoint = new CxfSpringEndpoint();
         cxfSpringEndpoint.setAddress("http://localhost:9090/camelsoapdemo/ws/helloworld");
         cxfSpringEndpoint.setServiceClass("the.camelsoapdemo.services.helloworld.HelloWorldPortType");
-        cxfSpringEndpoint.setWsdlURL("wsdl/helloworld.wsdl");
+        cxfSpringEndpoint.setWsdlURL("src/main/resources/wsdl/helloworld.wsdl");
 
         return cxfSpringEndpoint;
     }
