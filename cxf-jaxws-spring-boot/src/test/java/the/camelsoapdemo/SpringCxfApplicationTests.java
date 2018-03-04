@@ -40,6 +40,7 @@ public class SpringCxfApplicationTests {
   @Test
   public void testRest() {
       String string = testRestTemplate.getForObject("/", String.class);
+
   }
 
 
@@ -67,13 +68,11 @@ public class SpringCxfApplicationTests {
 
           from("cxf:bean:helloWorldPort")
                   .process(exchange -> {
-
                       Greeting greeting = new Greeting();
                       greeting.setGreeting("katitmukaan, TAUNO !?! :: camelSoapServer tässä TAUNOTTAA !!!");
                       exchange.getIn().setBody(greeting);
                     System.out.println();
                   });
-                  //.transform(constant("OK-22.3"));
         }
       };
     }
