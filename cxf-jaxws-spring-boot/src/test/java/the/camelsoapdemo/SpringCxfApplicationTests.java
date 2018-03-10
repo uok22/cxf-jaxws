@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import the.camelsoapdemo.client.HelloWorldClient;
+import the.camelsoapdemo.client.HelloWorldSoapClient;
 import the.camelsoapdemo.types.helloworld.Greeting;
 
 @RunWith(SpringRunner.class)
@@ -24,7 +24,7 @@ import the.camelsoapdemo.types.helloworld.Greeting;
 public class SpringCxfApplicationTests {
 
   @Autowired
-  private HelloWorldClient helloWorldClient;
+  private HelloWorldSoapClient helloWorldSoapClient;
 
   @Autowired
   TestRestTemplate testRestTemplate;
@@ -32,7 +32,7 @@ public class SpringCxfApplicationTests {
   @Test
   public void testSayHello() {
 
-    assertThat(helloWorldClient.sayHello("John", "Doe"))
+    assertThat(helloWorldSoapClient.sayHello("John", "Doe"))
         .isEqualTo("Hello John Doe!");
   }
 

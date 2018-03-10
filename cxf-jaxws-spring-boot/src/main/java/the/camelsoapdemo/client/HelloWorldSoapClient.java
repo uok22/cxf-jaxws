@@ -9,12 +9,11 @@ import the.camelsoapdemo.types.helloworld.ObjectFactory;
 import the.camelsoapdemo.types.helloworld.Person;
 
 @Component
-public class HelloWorldClient {
+public class HelloWorldSoapClient {
 
   @Autowired
   private HelloWorldPortType helloWorldProxy;
 
-  // public String sayHello(String firstName, String lastName) {
   public String sayHello(String firstName, String lastName) {
 
     ObjectFactory factory = new ObjectFactory();
