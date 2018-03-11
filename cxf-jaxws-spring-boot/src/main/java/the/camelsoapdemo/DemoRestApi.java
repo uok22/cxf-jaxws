@@ -14,9 +14,10 @@ public class DemoRestApi {
 
 
 	@GetMapping(value = "/restit")
-	public String testIt(Principal principal) {
+	public String testIt(Principal principal,
+						 @RequestParam String name) {
 
-		String response = helloWorldSoapClient.sayHello("Jopas", "Jotain");
+		String response = helloWorldSoapClient.sayHello(name, "Jotain");
 		return response;
 	}
 

@@ -18,6 +18,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import the.camelsoapdemo.client.HelloWorldSoapClient;
 import the.camelsoapdemo.types.helloworld.Greeting;
+import the.camelsoapdemo.types.helloworld.Person;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)
@@ -42,7 +43,8 @@ public class SpringCxfApplicationTests {
   public void testRest() {
       String string = testRestTemplate
               .withBasicAuth("ok", "22")
-              .getForObject("/restit", String.class);
+
+              .getForObject("/restit?name=Möttönen", String.class);
 
   }
 
@@ -81,9 +83,10 @@ public class SpringCxfApplicationTests {
 
           from("cxf:bean:helloWorldPort")
                   .process(exchange -> {
-                      Greeting greeting = new Greeting();
-                      greeting.setGreeting("katitmukaan, TAUNO !?! :: camelSoapServer tässä TAUNOTTAA !!!");
-                      exchange.getIn().setBody(greeting);
+                      Person request = exchange.getIn().getBody(Person.class);
+                      Greeting response = new Greeting();
+                      response.setGreeting("Terkkuja Camel Soup Serveriltä, " + request.getFirstName());
+                      exchange.getIn().setBody(response);
                   });
         }
       };
