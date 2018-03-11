@@ -12,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -39,8 +40,20 @@ public class SpringCxfApplicationTests {
 
   @Test
   public void testRest() {
-      String string = testRestTemplate.getForObject("/", String.class);
+      String string = testRestTemplate
+              .withBasicAuth("ok", "22")
+              .getForObject("/restit", String.class);
 
+  }
+
+  @Test
+  public void testPost() {
+      RequestPayload requestPayload = new RequestPayload();
+      requestPayload.setName("Kuis hurisee?");
+
+      ResponseEntity<ResponsePayload> responsePayload = testRestTemplate
+              .withBasicAuth("ok", "22")
+              .postForEntity("/postit", requestPayload, ResponsePayload.class);
   }
 
 
@@ -71,7 +84,6 @@ public class SpringCxfApplicationTests {
                       Greeting greeting = new Greeting();
                       greeting.setGreeting("katitmukaan, TAUNO !?! :: camelSoapServer tässä TAUNOTTAA !!!");
                       exchange.getIn().setBody(greeting);
-                    System.out.println();
                   });
         }
       };
